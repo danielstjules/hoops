@@ -11,6 +11,7 @@
     "underscore",
     "lo-dash"
   ],
+  "main": "lib/drey.js",
   "author": "Daniel St. Jules <danielst.jules@gmail.com>",
   "license": "MIT",
   "homepage": "https://github.com/danielstjules/drey",
@@ -19,6 +20,7 @@
     "url": "https://github.com/danielstjules/drey.git"
   },
   "devDependencies": {
+    "mocha": "*",
     "expect.js": "^0.3.1",
     "gulp": "*",
     "gulp-rename": "^1.2.0",
@@ -28,7 +30,8 @@
     "zuul": "^1.10.1"
   },
   "scripts": {
-    "test": "./node_modules/.bin/zuul --local 8080 --ui mocha-bdd -- test/test.js",
-    "saucetest": "./node_modules/.bin/zuul --ui mocha-bdd -- test/test.js"
+    "test": "./node_modules/.bin/mocha -R spec test/dreyTest.js",
+    "zuultest": "./node_modules/.bin/zuul --local 8080 --ui mocha-bdd -- test/dreyTest.js",
+    "saucetest": "./node_modules/.bin/zuul --ui mocha-bdd -- test/dreyTest.js"
   }
 }
