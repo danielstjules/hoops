@@ -13,7 +13,6 @@ library, and available in the browser as well as for node. Inspired by igorw/get
   * [drey.invokeIn(object, keys, \[...args\])](#dreyinvokeinobject-keys-args)
   * [drey.updateIn(object, keys, value)](#dreyupdateinobject-keys-value)
   * [drey.setIn(object, keys, value)](#dreysetinobject-keys-value)
-* [Other](#other)
 
 ## Overview
 
