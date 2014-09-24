@@ -8,11 +8,11 @@ library, and available in the browser as well as for node. Inspired by igorw/get
 * [Overview](#overview)
 * [Installation](#installation)
 * [API](#api)
-  * [drey.getIn(object, keys, \[defaultValue\])](#dreygetinobject-object-keys-defaultValue)
-  * [drey.isIn(object, keys)](#dreyisinobject-object-keys)
-  * [drey.callIn(object, keys, \[...args\])](#dreycallinobject-object-keys-args)
-  * [drey.updateIn(object, keys, value)](#dreyupdateinobject-object-keys-value)
-  * [drey.setIn(object, keys, value)](#dreysetinobject-object-keys-value)
+  * [drey.getIn(object, keys, \[defaultValue\])](#dreygetinobject-keys-defaultvalue)
+  * [drey.isIn(object, keys)](#dreyisinobject-keys)
+  * [drey.callIn(object, keys, \[...args\])](#dreycallinobject-keys-args)
+  * [drey.updateIn(object, keys, value)](#dreyupdateinobject-keys-value)
+  * [drey.setIn(object, keys, value)](#dreysetinobject-keys-value)
 
 ## Overview
 
@@ -81,7 +81,7 @@ object = {foo: {bar: function(x, z) {
   y = x + z;
 }}};
 
-drey.callIn(object, 'foo.bar', 10, 5); // object
+drey.callIn(object, 'foo.bar', 10, 5); // => object
 console.log(y); // 15
 ```
 
@@ -107,7 +107,6 @@ non-existent properties, and returns the supplied object.
 
 ``` javascript
 var object = {foo: {}};
-
 drey.setIn(object, 'foo.bar.baz', 'example');
 // {foo: {bar: {baz: 'example'}}}
 ```
