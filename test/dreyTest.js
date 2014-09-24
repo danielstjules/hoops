@@ -2,10 +2,11 @@ var expect = require('expect.js');
 var drey   = require('../lib/drey.js');
 
 describe('drey', function() {
-  // if (global.mocha && ieDetected) {
-  //   global.mocha.globals(['CrossStorageClient-*']);
-  // }
-  var object = {foo: {bar: {baz: 'test'}}};
+  var object;
+
+  beforeEach(function() {
+    object = {foo: {bar: {baz: 'test'}}};
+  });
 
   describe('getIn', function() {
     it('returns the value if the keys exist', function() {
@@ -174,6 +175,32 @@ describe('drey', function() {
         expect(count).to.be(i + 1);
         expect(res).to.be(object);
       }
+    });
+  });
+
+  describe('updateIn', function() {
+    it('updates the value at the given key if it exists', function() {
+      var res = drey.updateIn(object, ['foo', 'bar'], 'updateInTest');
+      expect(res).to.be(object);
+      expect(object.foo.bar).to.be('updateInTest');
+    });
+
+    it('throws an exception if the key does not exist', function() {
+      var fn = function() {
+        drey.updateIn(object, ['foo', 'invalid'], 'updateInTest');
+      };
+
+      var error = 'Could not find path in object to update: foo,invalid';
+
+      expect(fn).to.throwException(function(err) {
+        expect(err.message).to.be(error);
+      });
+    });
+
+    it('accepts dot delimited properties for keys', function() {
+      var res = drey.updateIn(object, 'foo.bar', 'updateInTest');
+      expect(res).to.be(object);
+      expect(object.foo.bar).to.be('updateInTest');
     });
   });
 });
