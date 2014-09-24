@@ -48,7 +48,7 @@ describe('drey', function() {
       });
     });
 
-    it('accepts dot delimited properties for keys', function() {
+    it('accepts dot delimited strings for keys', function() {
       var expected = [
         {keys: 'foo', res: object.foo},
         {keys: 'foo.bar', res: object.foo.bar},
@@ -89,7 +89,7 @@ describe('drey', function() {
       });
     });
 
-    it('accepts dot delimited properties for keys', function() {
+    it('accepts dot delimited strings for keys', function() {
       var keys = ['foo', 'foo.bar', 'foo.bar.baz'];
 
       keys.forEach(function(array) {
@@ -161,7 +161,7 @@ describe('drey', function() {
       expect(res).to.be(object);
     });
 
-    it('accepts dot delimited properties for keys', function() {
+    it('accepts dot delimited strings for keys', function() {
       var keys, i, res;
 
       keys = [
@@ -197,10 +197,24 @@ describe('drey', function() {
       });
     });
 
-    it('accepts dot delimited properties for keys', function() {
+    it('accepts dot delimited strings for keys', function() {
       var res = drey.updateIn(object, 'foo.bar', 'updateInTest');
       expect(res).to.be(object);
       expect(object.foo.bar).to.be('updateInTest');
+    });
+  });
+
+  describe('setIn', function() {
+    it('sets the value at the given key, creating objects if necessary', function() {
+      var res = drey.setIn(object, ['foo', 'newprop', 'another'], 'setInTest');
+      expect(res).to.be(object);
+      expect(object.foo.newprop.another).to.be('setInTest');
+    });
+
+    it('accepts dot delimited strings for keys', function() {
+      var res = drey.setIn(object, 'foo.newprop.another', 'setInTest');
+      expect(res).to.be(object);
+      expect(object.foo.newprop.another).to.be('setInTest');
     });
   });
 });
