@@ -10,7 +10,7 @@ library, and available in the browser as well as for node. Inspired by igorw/get
 * [API](#api)
   * [drey.getIn(object, keys, \[defaultValue\])](#dreygetinobject-keys-defaultvalue)
   * [drey.isIn(object, keys)](#dreyisinobject-keys)
-  * [drey.callIn(object, keys, \[...args\])](#dreycallinobject-keys-args)
+  * [drey.invokeIn(object, keys, \[...args\])](#dreyinvokeinobject-keys-args)
   * [drey.updateIn(object, keys, value)](#dreyupdateinobject-keys-value)
   * [drey.setIn(object, keys, value)](#dreysetinobject-keys-value)
 
@@ -68,10 +68,10 @@ drey.isIn(object, 'foo.bar.baz'); // => true
 drey.isIn(object, ['foo', 'bar', 'baz']); // => true
 ```
 
-#### drey.callIn(object, keys, \[...args\])
+#### drey.invokeIn(object, keys, \[...args\])
 
 Invokes the function nested at the provided path of keys, if it exists,
-and returns the object. callIn accepts a variable number of arguments to
+and returns the object. invokeIn accepts a variable number of arguments to
 be passed. If the value at the key does not exist, or is not a function,
 an error is thrown.
 
@@ -81,7 +81,7 @@ object = {foo: {bar: function(x, z) {
   y = x + z;
 }}};
 
-drey.callIn(object, 'foo.bar', 10, 5); // => object
+drey.invokeIn(object, 'foo.bar', 10, 5); // => object
 console.log(y); // 15
 ```
 

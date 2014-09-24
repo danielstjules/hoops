@@ -99,7 +99,7 @@ describe('drey', function() {
     });
   });
 
-  describe('callIn', function() {
+  describe('invokeIn', function() {
     var count;
 
     beforeEach(function() {
@@ -131,7 +131,7 @@ describe('drey', function() {
       ];
 
       for (i = 0; i < keys.length; i++) {
-        res = drey.callIn(object, keys[i]);
+        res = drey.invokeIn(object, keys[i]);
         expect(count).to.be(i + 1);
         expect(res).to.be(object);
       }
@@ -139,10 +139,10 @@ describe('drey', function() {
 
     it('throws an exception if the key does not correspond to a fn', function() {
       var fn = function() {
-        drey.callIn(object, ['foo', 'bar']);
+        drey.invokeIn(object, ['foo', 'bar']);
       };
 
-      var error = 'Could not find fn to call in object path: foo,bar';
+      var error = 'Could not find fn to invoke in object path: foo,bar';
 
       expect(fn).to.throwException(function(err) {
         expect(err.message).to.be(error);
@@ -156,7 +156,7 @@ describe('drey', function() {
         x = y + z;
       };
 
-      res = drey.callIn(object, ['foo', 'bar', 'fn'], 10, 5);
+      res = drey.invokeIn(object, ['foo', 'bar', 'fn'], 10, 5);
       expect(x).to.be(15);
       expect(res).to.be(object);
     });
@@ -171,7 +171,7 @@ describe('drey', function() {
       ];
 
       for (i = 0; i < keys.length; i++) {
-        res = drey.callIn(object, keys[i]);
+        res = drey.invokeIn(object, keys[i]);
         expect(count).to.be(i + 1);
         expect(res).to.be(object);
       }
