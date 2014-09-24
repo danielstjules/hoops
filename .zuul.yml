@@ -1,0 +1,18 @@
+ui: mocha-bdd
+scripts:
+  - "lib/drey.js"
+browsers:
+  - name: chrome
+    version: 34..latest
+    platform: Linux
+  - name: firefox
+    version: 29..latest
+    platform: Linux
+  - name: safari
+    version: 5..7
+  - name: ie
+    version: 8..latest
+  - name: android
+    version: latest
+  - name: iphone
+    version: 7.0..latest

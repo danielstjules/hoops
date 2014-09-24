@@ -1,0 +1,30 @@
+{
+  "name": "drey",
+  "version": "0.0.0",
+  "description": "Nested property extension for underscore and Lo-Dash",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Daniel St. Jules",
+      "email": "danielst.jules@gmail.com",
+      "url": "http://danielstjules.com"
+    }
+  ],
+  "keywords": [
+    "nested",
+    "property",
+    "object",
+    "access",
+    "exist",
+    "underscore",
+    "lo-dash"
+  ],
+  "ignore": [
+    ".*",
+    "gulpfile.js",
+    "package.json",
+    "README.md",
+    "lib",
+    "test"
+  ]
+}
