@@ -1,0 +1,35 @@
+{
+  "name": "underscore.nested",
+  "version": "0.0.0",
+  "description": "Nested property extension for underscore and Lo-Dash",
+  "keywords": [
+    "nested",
+    "property",
+    "object",
+    "access",
+    "exist",
+    "underscore",
+    "lo-dash"
+  ],
+  "author": "Daniel St. Jules <danielst.jules@gmail.com>",
+  "license": "MIT",
+  "homepage": "https://github.com/danielstjules/underscore.nested",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/danielstjules/underscore.nested.git"
+  },
+  "devDependencies": {
+    "expect.js": "^0.3.1",
+    "gulp": "*",
+    "gulp-jshint": "^1.8.4",
+    "gulp-rename": "^1.2.0",
+    "gulp-uglify": "^0.3.1",
+    "gulp-header": "^1.1.1",
+    "gulp-rimraf": "^0.1.0",
+    "zuul": "^1.10.1"
+  },
+  "scripts": {
+    "test": "./node_modules/.bin/zuul --local 8080 --ui mocha-bdd -- test/test.js",
+    "saucetest": "./node_modules/.bin/zuul --ui mocha-bdd -- test/test.js"
+  }
+}
