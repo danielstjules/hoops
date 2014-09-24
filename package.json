@@ -1,7 +1,7 @@
 {
   "name": "drey",
   "version": "0.0.0",
-  "description": "Nested access extension for underscore and Lo-Dash",
+  "description": "Nested access extension for underscore and lodash",
   "keywords": [
     "nested",
     "property",
@@ -9,7 +9,7 @@
     "access",
     "exist",
     "underscore",
-    "lo-dash"
+    "lodash"
   ],
   "main": "lib/drey.js",
   "author": "Daniel St. Jules <danielst.jules@gmail.com>",

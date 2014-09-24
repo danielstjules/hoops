@@ -1,7 +1,7 @@
 {
   "name": "drey",
   "version": "0.0.0",
-  "description": "Nested access extension for underscore and Lo-Dash",
+  "description": "Nested access extension for underscore and Lodash",
   "main": "dist/drey.min.js",
   "license": "MIT",
   "authors": [
@@ -18,7 +18,7 @@
     "access",
     "exist",
     "underscore",
-    "lo-dash"
+    "lodash"
   ],
   "ignore": [
     ".*",
