@@ -24,7 +24,7 @@ library, and available in the browser as well as for node. Inspired by igorw/get
 > 2. seemingly never-ending nested objects
 
 drey is a library for traversing and manipulating deeply nested properties in
-JavaScript. It's a set of convenience functions to help reduce some repition.
+JavaScript. It's a set of convenience functions to help reduce some repetition.
 For example, to retrieve a deeply nested configuration value from an object,
 you may have:
 
@@ -53,7 +53,7 @@ _.getIn(object, 'some.nested.property').pick('id', 'name');
 
 It may not offer the convenience of monads, but it certainly helps reduce
 friction in dealing with these objects. Some may also wonder how this compares
-to underscore-contrib or lodash-contrib instead:
+to underscore-contrib or lodash-contrib:
 
 * The contrib repos only offer getPath and hasPath (getIn, isIn)
 * The libs cannot be used standalone, as they require underscore/lodash
