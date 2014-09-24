@@ -62,16 +62,16 @@ Also, thanks to Redwall and Spencer for the name.
 
 ## Installation
 
-The library can be installed via bower:
-
-``` bash
-bower install drey
-```
-
-Or using npm:
+The library can be installed via npm:
 
 ``` bash
 npm install drey
+```
+
+Or using bower:
+
+``` bash
+bower install drey
 ```
 
 ## API
