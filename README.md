@@ -13,6 +13,7 @@ library, and available in the browser as well as for node. Inspired by igorw/get
   * [drey.invokeIn(object, keys, \[...args\])](#dreyinvokeinobject-keys-args)
   * [drey.updateIn(object, keys, value)](#dreyupdateinobject-keys-value)
   * [drey.setIn(object, keys, value)](#dreysetinobject-keys-value)
+* [Other](#other)
 
 ## Overview
 
@@ -20,14 +21,44 @@ library, and available in the browser as well as for node. Inspired by igorw/get
 >
 > 1. the nest of a squirrel
 >
-> 2. an object with seemingly never-ending nested objects
+> 2. seemingly never-ending nested objects
 
-Why not use underscore-contrib or lodash-contrib?
+drey is a library for traversing and manipulating deeply nested properties in
+JavaScript. It's a set of convenience functions to help reduce some repition.
+For example, to retrieve a deeply nested configuration value from an object,
+you may have:
+
+``` javascript
+var namespace;
+if (app.environment && app.environment.redis && app.environment.redis.namespace) {
+  namespace = app.environment.redis.namespace;
+}
+```
+
+All this to avoid a TypeError resulting from trying to access a property of
+an undefined value: `TypeError: Cannot read property 'redis' of undefined`.
+How does drey help? You get can achieve the same as the previous example using:
+
+``` javascript
+var namespace = drey.getIn('app.environment.redis.namespace');
+```
+
+Keys may be accessed via a dot-delimited string as seen above, or by providing
+an array of strings. The library also integrates nicely with both underscore
+and lodash, allowing you to do:
+
+``` javascript
+_.getIn(object, 'some.nested.property').pick('id', 'name');
+```
+
+It may not offer the convenience of monads, but it certainly helps reduce
+friction in dealing with these objects. Some may also wonder how this compares
+to underscore-contrib or lodash-contrib instead:
 
 * The contrib repos only offer getPath and hasPath (getIn, isIn)
 * The libs cannot be used standalone, as they require underscore/lodash
 
-Thanks to Redwall and Spencer for the name.
+Also, thanks to Redwall and Spencer for the name.
 
 ## Installation
 
