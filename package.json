@@ -1,5 +1,5 @@
 {
-  "name": "underscore.nested",
+  "name": "drey",
   "version": "0.0.0",
   "description": "Nested property extension for underscore and Lo-Dash",
   "keywords": [
@@ -13,10 +13,10 @@
   ],
   "author": "Daniel St. Jules <danielst.jules@gmail.com>",
   "license": "MIT",
-  "homepage": "https://github.com/danielstjules/underscore.nested",
+  "homepage": "https://github.com/danielstjules/drey",
   "repository": {
     "type": "git",
-    "url": "https://github.com/danielstjules/underscore.nested.git"
+    "url": "https://github.com/danielstjules/drey.git"
   },
   "devDependencies": {
     "expect.js": "^0.3.1",
