@@ -1,0 +1,76 @@
+var expect = require('expect.js');
+var _      = require('lodash');
+var drey   = require('../../lib/drey');
+_.mixin(drey);
+
+describe('lodash with drey as a mixin', function() {
+  var object;
+
+  beforeEach(function() {
+    object = {foo: {bar: {baz: 'test'}}};
+  });
+
+  it('has direct access to getIn', function() {
+    var res = _.getIn(object, 'foo.bar.baz');
+    expect(res).to.eql('test');
+  });
+
+  it('can chain getIn', function() {
+    var res = _(object).getIn('foo.bar.baz');
+    expect(res.__wrapped__).to.eql('test');
+  });
+
+  it('has direct access to isIn', function() {
+    var res = _.isIn(object, 'foo.bar.baz');
+    expect(res).to.be(true);
+  });
+
+  it('can chain isIn', function() {
+    var res = _(object).isIn('foo.bar.baz');
+    expect(res.__wrapped__).to.eql(true);
+  });
+
+  it('has direct access to invokeIn', function() {
+    var invoked;
+    object.foo.bar.baz = function() {
+      invoked = true;
+    };
+
+    var res = _.invokeIn(object, 'foo.bar.baz');
+    expect(res).to.be(object);
+    expect(invoked).to.be(true);
+  });
+
+  it('can chain invokeIn', function() {
+    var invoked;
+    object.foo.bar.baz = function() {
+      invoked = true;
+    };
+
+    var res = _(object).invokeIn('foo.bar.baz');
+    expect(res.__wrapped__).to.eql(object);
+    expect(invoked).to.be(true);
+  });
+
+  it('has direct access to updateIn', function() {
+    var res = _.updateIn(object, 'foo.bar.baz', 'updated');
+    expect(res.foo.bar.baz).to.eql('updated');
+  });
+
+  it('can chain updateIn', function() {
+    var res = _(object).updateIn('foo.bar.baz', 'updated');
+    expect(res.__wrapped__.foo.bar.baz).to.eql('updated');
+  });
+
+  it('has direct access to setIn', function() {
+    var res = _.setIn(object, 'test.nested.prop', 'new');
+    expect(res.test.nested.prop).to.be('new');
+    expect(res.foo).to.eql(object.foo);
+  });
+
+  it('can chain setIn', function() {
+    var res = _(object).setIn('test.nested.prop', 'new');
+    expect(res.__wrapped__.test.nested.prop).to.be('new');
+    expect(res.__wrapped__.foo).to.eql(object.foo);
+  });
+});

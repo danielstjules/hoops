@@ -22,6 +22,8 @@
   "devDependencies": {
     "mocha": "*",
     "expect.js": "^0.3.1",
+    "lodash": "*",
+    "underscore": "*",
     "gulp": "*",
     "gulp-rename": "^1.2.0",
     "gulp-uglify": "^0.3.1",
@@ -31,6 +33,7 @@
   },
   "scripts": {
     "test": "./node_modules/.bin/mocha -R spec test/dreyTest.js",
+    "integrationtest": "./node_modules/.bin/mocha -R spec test/integration",
     "zuultest": "./node_modules/.bin/zuul --local 8080 --ui mocha-bdd -- test/dreyTest.js",
     "saucetest": "./node_modules/.bin/zuul --ui mocha-bdd -- test/dreyTest.js"
   }
