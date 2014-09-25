@@ -87,7 +87,8 @@ _.mixin(hoops);
 **Browser**
 
 Simply load `hoops.min.js`. For automatic integration with underscore or lodash,
-the file should be loaded after either script.
+the file should be loaded after either script. It can also be loaded via
+CommonJS and AMD.
 
 ## Usage
 
@@ -168,7 +169,6 @@ properties. If a key does not exist, the object is simply returned.
 
 ``` javascript
 var object = {foo: {bar: { baz: 'test'}}};
-
 hoops.updateIn(object, 'foo.bar.baz.invalid', 'updatedValue'); // => object
 ```
 
