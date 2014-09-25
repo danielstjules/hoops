@@ -23,9 +23,9 @@ library, and available in the browser as well as for node. Inspired by igorw/get
 > 2. seemingly never-ending nested objects
 
 drey is a library for traversing and manipulating deeply nested properties in
-JavaScript. It's a set of convenience functions to help reduce some repetition.
-For example, to retrieve a deeply nested configuration value from an object,
-you may have:
+JavaScript. It's a set of convenience functions to help reduce some of the
+repetition faced in these scenarios. For example, to retrieve a deeply nested
+configuration value from an object, you may have:
 
 ``` javascript
 var namespace;
@@ -36,7 +36,7 @@ if (app.environment && app.environment.redis && app.environment.redis.namespace)
 
 All this to avoid a TypeError resulting from trying to access a property of
 an undefined value: `TypeError: Cannot read property 'redis' of undefined`.
-How does drey help? You get can achieve the same as the previous example using:
+How can drey help? You can achieve the same as the previous example using:
 
 ``` javascript
 var namespace = drey.getIn(app, 'environment.redis.namespace');
@@ -101,7 +101,8 @@ drey.isIn(object, ['foo', 'bar', 'baz']); // => true
 #### drey.invokeIn(object, keys, \[...args\])
 
 Invokes the function nested at the provided path of keys, if it exists,
-and returns the object. invokeIn accepts a variable number of arguments to
+and returns the object. The given keys may be an array, or a dot-delimited
+string of properties. invokeIn accepts a variable number of arguments to
 be passed. If the value at the key does not exist, or is not a function,
 an error is thrown.
 
@@ -118,7 +119,8 @@ console.log(y); // 15
 #### drey.updateIn(object, keys, value)
 
 Updates the nested key with the given value, if it exists, and returns the
-object. If the key does not exist, an error is thrown.
+object. Keys may either be an array, or a dot-delimited string of
+properties. If a key does not exist, an error is thrown.
 
 ``` javascript
 var object = {foo: {bar: { baz: 'test'}}};
@@ -133,7 +135,8 @@ try {
 #### drey.setIn(object, keys, value)
 
 Sets the nested key to the provided value, creating objects for any
-non-existent properties, and returns the supplied object.
+non-existent properties, and returns the supplied object. Keys may be
+supplied an array, or a dot-delimited string of properties.
 
 ``` javascript
 var object = {foo: {}};
