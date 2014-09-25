@@ -74,6 +74,28 @@ Or using bower:
 bower install drey
 ```
 
+**NodeJS**
+
+``` javascript
+// Standalone
+var drey = require('drey');
+
+// With lodash
+var _    = require('lodash');
+var drey = require('drey');
+_.mixin(drey);
+
+// With underscore
+var _    = require('lodash');
+var drey = require('underscore');
+_.mixin(drey);
+```
+
+**Browser**
+
+Simply load `drey.min.js`. For automatic integration with underscore or lodash,
+the file should be loaded after either script.
+
 ## Usage
 
 **Standalone**
