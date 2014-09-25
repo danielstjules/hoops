@@ -2,7 +2,7 @@
 
 Nested property access for underscore and lodash. Also usable as a standalone
 library, and available in the browser as well as for node. Tested in all
-modern browsers as well as IE6+. Inspired by igorw/get-in.
+modern browsers, and IE6+. Inspired by igorw/get-in.
 
 [![Build Status](https://travis-ci.org/danielstjules/drey.svg?branch=master)](https://travis-ci.org/danielstjules/drey)
 
