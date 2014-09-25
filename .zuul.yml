@@ -13,6 +13,6 @@ browsers:
   - name: ie
     version: latest
   - name: android
-    version: latest
+    version: 9..latest
   - name: iphone
     version: 7.0..latest
