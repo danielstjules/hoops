@@ -1,5 +1,5 @@
 var expect = require('expect.js');
-var _      = require('lodash');
+var _      = require('lodash').runInContext();
 var hoops  = require('../../lib/hoops');
 _.mixin(hoops);
 

@@ -79,7 +79,7 @@ var hoops = require('hoops');
 _.mixin(hoops);
 
 // With lodash
-var _     = require('lodash');
+var _     = require('lodash').runInContext();
 var hoops = require('hoops');
 _.mixin(hoops);
 ```
