@@ -3,7 +3,7 @@ var _      = require('underscore');
 var drey   = require('../../lib/drey');
 _.mixin(drey);
 
-describe('lodash with drey as a mixin', function() {
+describe('underscore with drey as a mixin', function() {
   var object;
 
   beforeEach(function() {
