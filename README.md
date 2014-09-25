@@ -80,14 +80,14 @@ bower install drey
 // Standalone
 var drey = require('drey');
 
-// With lodash
-var _    = require('lodash');
+// With underscore
+var _    = require('underscore');
 var drey = require('drey');
 _.mixin(drey);
 
-// With underscore
+// With lodash
 var _    = require('lodash');
-var drey = require('underscore');
+var drey = require('drey');
 _.mixin(drey);
 ```
 
