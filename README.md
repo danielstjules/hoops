@@ -59,7 +59,7 @@ to underscore-contrib or lodash-contrib:
 * The contrib repos only offer getPath and hasPath (getIn, isIn)
 * The libs cannot be used standalone, as they require underscore/lodash
 
-Also, thanks to Redwall and Spencer for the name.
+Also, shout-out to Redwall and Spencer for the name.
 
 ## Installation
 
@@ -155,8 +155,8 @@ drey.isIn(object, ['foo', 'bar', 'baz']); // => true
 Invokes the function nested at the provided path of keys, if it exists,
 and returns the object. The given keys may be an array, or a dot-delimited
 string of properties. invokeIn accepts a variable number of arguments to
-be passed. If the value at the key does not exist, or is not a function,
-an error is thrown.
+be passed. If a function at the key does not exist, the object is simply
+returned.
 
 ``` javascript
 var y, object;
@@ -172,16 +172,12 @@ console.log(y); // 15
 
 Updates the nested key with the given value, if it exists, and returns the
 object. Keys may either be an array, or a dot-delimited string of
-properties. If a key does not exist, an error is thrown.
+properties. If a key does not exist, the object is simply returned.
 
 ``` javascript
 var object = {foo: {bar: { baz: 'test'}}};
 
-try {
-  drey.updateIn(object, 'foo.bar.baz.invalid', 'updatedValue');
-} catch (e) {
-  // Could not update value
-}
+drey.updateIn(object, 'foo.bar.baz.invalid', 'updatedValue'); // => object
 ```
 
 #### drey.setIn(object, keys, value)

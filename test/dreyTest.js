@@ -151,16 +151,9 @@ describe('drey', function() {
       }
     });
 
-    it('throws an exception if the key does not correspond to a fn', function() {
-      var fn = function() {
-        drey.invokeIn(object, ['foo', 'bar']);
-      };
-
-      var error = 'Could not find fn to invoke in object path: foo,bar';
-
-      expect(fn).to.throwException(function(err) {
-        expect(err.message).to.be(error);
-      });
+    it('returns the object if the key does not correspond to a fn', function() {
+      var res = drey.invokeIn(object, ['foo', 'bar']);
+      expect(res).to.be(object);
     });
 
     it('accepts a variable number of arguments to pass to the fn', function() {
@@ -199,16 +192,9 @@ describe('drey', function() {
       expect(object.foo.bar).to.be('updateInTest');
     });
 
-    it('throws an exception if the key does not exist', function() {
-      var fn = function() {
-        drey.updateIn(object, ['foo', 'invalid'], 'updateInTest');
-      };
-
-      var error = 'Could not find path in object to update: foo,invalid';
-
-      expect(fn).to.throwException(function(err) {
-        expect(err.message).to.be(error);
-      });
+    it('returns the object if the key does not exist', function() {
+      var res = drey.updateIn(object, ['foo', 'invalid'], 'updateInTest');
+      expect(res).to.be(object);
     });
 
     it('accepts dot delimited strings for keys', function() {
