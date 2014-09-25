@@ -7,6 +7,7 @@ library, and available in the browser as well as for node. Inspired by igorw/get
 
 * [Overview](#overview)
 * [Installation](#installation)
+* [Usage](#usage)
 * [API](#api)
   * [drey.getIn(object, keys, \[defaultValue\])](#dreygetinobject-keys-defaultvalue)
   * [drey.isIn(object, keys)](#dreyisinobject-keys)
@@ -71,6 +72,34 @@ Or using bower:
 
 ``` bash
 bower install drey
+```
+
+## Usage
+
+**Standalone**
+
+Chaining is not available when using drey on its own.
+
+``` javascript
+drey.getIn(object, 'foo.bar.baz');
+```
+
+**Underscore**
+
+Underscore chaining requires chain() and value() calls.
+
+``` javascript
+_.getIn(object, 'foo.bar.baz');
+_(object).chain().getIn('foo.bar.baz').value();
+```
+
+**Lodash**
+
+Lodash chaining only requires a value call.
+
+``` javascript
+_.getIn(object, 'foo.bar.baz');
+_(object).getIn('foo.bar.baz').value();
 ```
 
 ## API
