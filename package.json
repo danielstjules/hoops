@@ -1,5 +1,5 @@
 {
-  "name": "drey",
+  "name": "hoops",
   "version": "0.1.0",
   "description": "Nested access extension for underscore and lodash",
   "keywords": [
@@ -11,13 +11,13 @@
     "underscore",
     "lodash"
   ],
-  "main": "lib/drey.js",
+  "main": "lib/hoops.js",
   "author": "Daniel St. Jules <danielst.jules@gmail.com>",
   "license": "MIT",
-  "homepage": "https://github.com/danielstjules/drey",
+  "homepage": "https://github.com/danielstjules/hoops",
   "repository": {
     "type": "git",
-    "url": "https://github.com/danielstjules/drey.git"
+    "url": "https://github.com/danielstjules/hoops.git"
   },
   "devDependencies": {
     "mocha": "*",
@@ -32,8 +32,8 @@
     "zuul": "^1.10.1"
   },
   "scripts": {
-    "test": "./node_modules/.bin/mocha -R spec test/dreyTest.js test/integration/",
-    "zuultest": "./node_modules/.bin/zuul --local 8080 --ui mocha-bdd -- test/dreyTest.js",
-    "saucetest": "./node_modules/.bin/zuul --ui mocha-bdd -- test/dreyTest.js"
+    "test": "./node_modules/.bin/mocha -R spec test/hoopsTest.js test/integration/",
+    "zuultest": "./node_modules/.bin/zuul --local 8080 --ui mocha-bdd -- test/hoopsTest.js",
+    "saucetest": "./node_modules/.bin/zuul --ui mocha-bdd -- test/hoopsTest.js"
   }
 }

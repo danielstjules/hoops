@@ -1,9 +1,9 @@
 var expect = require('expect.js');
 var _      = require('lodash');
-var drey   = require('../../lib/drey');
-_.mixin(drey);
+var hoops   = require('../../lib/hoops');
+_.mixin(hoops);
 
-describe('lodash with drey as a mixin', function() {
+describe('lodash with hoops as a mixin', function() {
   var object;
 
   beforeEach(function() {

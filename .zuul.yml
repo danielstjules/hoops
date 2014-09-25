@@ -1,6 +1,6 @@
 ui: mocha-bdd
 scripts:
-  - "lib/drey.js"
+  - "lib/hoops.js"
 browsers:
   - name: chrome
     version: 34..latest

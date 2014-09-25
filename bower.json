@@ -1,8 +1,8 @@
 {
-  "name": "drey",
+  "name": "hoops",
   "version": "0.1.0",
   "description": "Nested access extension for underscore and Lodash",
-  "main": "dist/drey.min.js",
+  "main": "dist/hoops.min.js",
   "license": "MIT",
   "authors": [
     {

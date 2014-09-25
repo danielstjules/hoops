@@ -1,30 +1,24 @@
-# drey
+![hoops](http://danielstjules.com/github/hoops-logo.png)
 
 Nested property access for underscore and lodash. Also usable as a standalone
 library, and available in the browser as well as for node. Tested in all
 modern browsers, and IE6+. Inspired by igorw/get-in.
 
-[![Build Status](https://travis-ci.org/danielstjules/drey.svg?branch=master)](https://travis-ci.org/danielstjules/drey)
+[![Build Status](https://travis-ci.org/danielstjules/hoops.svg?branch=master)](https://travis-ci.org/danielstjules/hoops)
 
 * [Overview](#overview)
 * [Installation](#installation)
 * [Usage](#usage)
 * [API](#api)
-  * [drey.getIn(object, keys, \[defaultValue\])](#dreygetinobject-keys-defaultvalue)
-  * [drey.isIn(object, keys)](#dreyisinobject-keys)
-  * [drey.invokeIn(object, keys, \[...args\])](#dreyinvokeinobject-keys-args)
-  * [drey.updateIn(object, keys, value)](#dreyupdateinobject-keys-value)
-  * [drey.setIn(object, keys, value)](#dreysetinobject-keys-value)
+  * [hoops.getIn(object, keys, \[defaultValue\])](#hoopsgetinobject-keys-defaultvalue)
+  * [hoops.isIn(object, keys)](#hoopsisinobject-keys)
+  * [hoops.invokeIn(object, keys, \[...args\])](#hoopsinvokeinobject-keys-args)
+  * [hoops.updateIn(object, keys, value)](#hoopsupdateinobject-keys-value)
+  * [hoops.setIn(object, keys, value)](#hoopssetinobject-keys-value)
 
 ## Overview
 
-> define: drey
->
-> 1. the nest of a squirrel
->
-> 2. seemingly never-ending nested objects
-
-drey is a library for traversing and manipulating deeply nested properties in
+hoops is a library for traversing and manipulating deeply nested properties in
 JavaScript. It's a set of convenience functions to help reduce some of the
 repetition faced in these scenarios. For example, to retrieve a deeply nested
 configuration value from an object, you may have:
@@ -38,10 +32,10 @@ if (app.environment && app.environment.redis && app.environment.redis.namespace)
 
 All this to avoid a TypeError resulting from trying to access a property of
 an undefined value: `TypeError: Cannot read property 'redis' of undefined`.
-How can drey help? You can achieve the same as the previous example using:
+How can hoops help? You can achieve the same as the previous example using:
 
 ``` javascript
-var namespace = drey.getIn(app, 'environment.redis.namespace');
+var namespace = hoops.getIn(app, 'environment.redis.namespace');
 ```
 
 Keys may be accessed via a dot-delimited string as seen above, or by providing
@@ -59,52 +53,50 @@ to underscore-contrib or lodash-contrib:
 * The contrib repos only offer getPath and hasPath (getIn, isIn)
 * The libs cannot be used standalone, as they require underscore/lodash
 
-Also, shout-out to Redwall and Spencer for the name.
-
 ## Installation
 
 The library can be installed via npm:
 
 ``` bash
-npm install drey
+npm install hoops
 ```
 
 Or using bower:
 
 ``` bash
-bower install drey
+bower install hoops
 ```
 
 **NodeJS**
 
 ``` javascript
 // Standalone
-var drey = require('drey');
+var hoops = require('hoops');
 
 // With underscore
 var _    = require('underscore');
-var drey = require('drey');
-_.mixin(drey);
+var hoops = require('hoops');
+_.mixin(hoops);
 
 // With lodash
 var _    = require('lodash');
-var drey = require('drey');
-_.mixin(drey);
+var hoops = require('hoops');
+_.mixin(hoops);
 ```
 
 **Browser**
 
-Simply load `drey.min.js`. For automatic integration with underscore or lodash,
+Simply load `hoops.min.js`. For automatic integration with underscore or lodash,
 the file should be loaded after either script.
 
 ## Usage
 
 **Standalone**
 
-Chaining is not available when using drey on its own.
+Chaining is not available when using hoops on its own.
 
 ``` javascript
-drey.getIn(object, 'foo.bar.baz');
+hoops.getIn(object, 'foo.bar.baz');
 ```
 
 **Underscore**
@@ -127,7 +119,7 @@ _(object).getIn('foo.bar.baz').value();
 
 ## API
 
-#### drey.getIn(object, keys, \[defaultValue\])
+#### hoops.getIn(object, keys, \[defaultValue\])
 
 Returns the value at the nested property, if it exists. Keys may either be
 an array, or a dot-delimited string of properties. If the value does not
@@ -135,22 +127,22 @@ exist, the function returns undefined, or the defaultValue if supplied.
 
 ``` javascript
 var object = {foo: {bar: {baz: 'example'}}};
-drey.getIn(object, 'foo.bar.baz'); // => 'example'
-drey.getIn(object, ['foo', 'bar', 'baz']); // => 'example'
+hoops.getIn(object, 'foo.bar.baz'); // => 'example'
+hoops.getIn(object, ['foo', 'bar', 'baz']); // => 'example'
 ```
 
-#### drey.isIn(object, keys)
+#### hoops.isIn(object, keys)
 
 Returns whether or not the nested property is defined. Keys may be an
 array, or a dot-delimited string of properties.
 
 ``` javascript
 var object = {foo: {bar: {baz: 'example'}}};
-drey.isIn(object, 'foo.bar.baz'); // => true
-drey.isIn(object, ['foo', 'bar', 'baz']); // => true
+hoops.isIn(object, 'foo.bar.baz'); // => true
+hoops.isIn(object, ['foo', 'bar', 'baz']); // => true
 ```
 
-#### drey.invokeIn(object, keys, \[...args\])
+#### hoops.invokeIn(object, keys, \[...args\])
 
 Invokes the function nested at the provided path of keys, if it exists,
 and returns the object. The given keys may be an array, or a dot-delimited
@@ -164,11 +156,11 @@ object = {foo: {bar: function(x, z) {
   y = x + z;
 }}};
 
-drey.invokeIn(object, 'foo.bar', 10, 5); // => object
+hoops.invokeIn(object, 'foo.bar', 10, 5); // => object
 console.log(y); // 15
 ```
 
-#### drey.updateIn(object, keys, value)
+#### hoops.updateIn(object, keys, value)
 
 Updates the nested key with the given value, if it exists, and returns the
 object. Keys may either be an array, or a dot-delimited string of
@@ -177,10 +169,10 @@ properties. If a key does not exist, the object is simply returned.
 ``` javascript
 var object = {foo: {bar: { baz: 'test'}}};
 
-drey.updateIn(object, 'foo.bar.baz.invalid', 'updatedValue'); // => object
+hoops.updateIn(object, 'foo.bar.baz.invalid', 'updatedValue'); // => object
 ```
 
-#### drey.setIn(object, keys, value)
+#### hoops.setIn(object, keys, value)
 
 Sets the nested key to the provided value, creating objects for any
 non-existent properties, and returns the supplied object. Keys may be
@@ -188,6 +180,6 @@ supplied an array, or a dot-delimited string of properties.
 
 ``` javascript
 var object = {foo: {}};
-drey.setIn(object, 'foo.bar.baz', 'example');
+hoops.setIn(object, 'foo.bar.baz', 'example');
 // {foo: {bar: {baz: 'example'}}}
 ```

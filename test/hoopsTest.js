@@ -1,7 +1,7 @@
 var expect = require('expect.js');
-var drey   = require('../lib/drey.js');
+var hoops   = require('../lib/hoops.js');
 
-describe('drey', function() {
+describe('hoops', function() {
   var object;
 
   beforeEach(function() {
@@ -19,7 +19,7 @@ describe('drey', function() {
       ];
 
       for (i = 0; i < expected.length; i++) {
-        res = drey.getIn(object, expected[i].keys);
+        res = hoops.getIn(object, expected[i].keys);
         expect(res).to.be(expected[i].res);
       }
     });
@@ -34,7 +34,7 @@ describe('drey', function() {
       ];
 
       for (i = 0; i < keys.length; i++) {
-        res = drey.getIn(object, keys[i]);
+        res = hoops.getIn(object, keys[i]);
         expect(res).to.be(undefined);
       }
     });
@@ -49,7 +49,7 @@ describe('drey', function() {
       ];
 
       for (i = 0; i < keys.length; i++) {
-        res = drey.getIn(object, keys[i], 'test');
+        res = hoops.getIn(object, keys[i], 'test');
         expect(res).to.be('test');
       }
     });
@@ -64,7 +64,7 @@ describe('drey', function() {
       ];
 
       for (i = 0; i < expected.length; i++) {
-        res = drey.getIn(object, expected[i].keys);
+        res = hoops.getIn(object, expected[i].keys);
         expect(res).to.be(expected[i].res);
       }
     });
@@ -81,7 +81,7 @@ describe('drey', function() {
       ];
 
       for (i = 0; i < keys.length; i++) {
-        res = drey.isIn(object, keys[i]);
+        res = hoops.isIn(object, keys[i]);
         expect(res).to.be(true);
       }
     });
@@ -96,7 +96,7 @@ describe('drey', function() {
       ];
 
       for (i = 0; i < keys.length; i++) {
-        res = drey.isIn(object, keys[i]);
+        res = hoops.isIn(object, keys[i]);
         expect(res).to.be(false);
       }
     });
@@ -107,7 +107,7 @@ describe('drey', function() {
       keys = ['foo', 'foo.bar', 'foo.bar.baz'];
 
       for (i = 0; i < keys.length; i++) {
-        res = drey.isIn(object, keys[i]);
+        res = hoops.isIn(object, keys[i]);
         expect(res).to.be(true);
       }
     });
@@ -145,14 +145,14 @@ describe('drey', function() {
       ];
 
       for (i = 0; i < keys.length; i++) {
-        res = drey.invokeIn(object, keys[i]);
+        res = hoops.invokeIn(object, keys[i]);
         expect(count).to.be(i + 1);
         expect(res).to.be(object);
       }
     });
 
     it('returns the object if the key does not correspond to a fn', function() {
-      var res = drey.invokeIn(object, ['foo', 'bar']);
+      var res = hoops.invokeIn(object, ['foo', 'bar']);
       expect(res).to.be(object);
     });
 
@@ -163,7 +163,7 @@ describe('drey', function() {
         x = y + z;
       };
 
-      res = drey.invokeIn(object, ['foo', 'bar', 'fn'], 10, 5);
+      res = hoops.invokeIn(object, ['foo', 'bar', 'fn'], 10, 5);
       expect(x).to.be(15);
       expect(res).to.be(object);
     });
@@ -178,7 +178,7 @@ describe('drey', function() {
       ];
 
       for (i = 0; i < keys.length; i++) {
-        res = drey.invokeIn(object, keys[i]);
+        res = hoops.invokeIn(object, keys[i]);
         expect(count).to.be(i + 1);
         expect(res).to.be(object);
       }
@@ -187,18 +187,18 @@ describe('drey', function() {
 
   describe('updateIn', function() {
     it('updates the value at the given key if it exists', function() {
-      var res = drey.updateIn(object, ['foo', 'bar'], 'updateInTest');
+      var res = hoops.updateIn(object, ['foo', 'bar'], 'updateInTest');
       expect(res).to.be(object);
       expect(object.foo.bar).to.be('updateInTest');
     });
 
     it('returns the object if the key does not exist', function() {
-      var res = drey.updateIn(object, ['foo', 'invalid'], 'updateInTest');
+      var res = hoops.updateIn(object, ['foo', 'invalid'], 'updateInTest');
       expect(res).to.be(object);
     });
 
     it('accepts dot delimited strings for keys', function() {
-      var res = drey.updateIn(object, 'foo.bar', 'updateInTest');
+      var res = hoops.updateIn(object, 'foo.bar', 'updateInTest');
       expect(res).to.be(object);
       expect(object.foo.bar).to.be('updateInTest');
     });
@@ -206,13 +206,13 @@ describe('drey', function() {
 
   describe('setIn', function() {
     it('sets the value at the given key, creating objects if necessary', function() {
-      var res = drey.setIn(object, ['foo', 'newprop', 'another'], 'setInTest');
+      var res = hoops.setIn(object, ['foo', 'newprop', 'another'], 'setInTest');
       expect(res).to.be(object);
       expect(object.foo.newprop.another).to.be('setInTest');
     });
 
     it('accepts dot delimited strings for keys', function() {
-      var res = drey.setIn(object, 'foo.newprop.another', 'setInTest');
+      var res = hoops.setIn(object, 'foo.newprop.another', 'setInTest');
       expect(res).to.be(object);
       expect(object.foo.newprop.another).to.be('setInTest');
     });
