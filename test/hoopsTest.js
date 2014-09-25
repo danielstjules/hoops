@@ -1,5 +1,5 @@
 var expect = require('expect.js');
-var hoops   = require('../lib/hoops.js');
+var hoops  = require('../lib/hoops.js');
 
 describe('hoops', function() {
   var object;

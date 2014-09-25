@@ -1,6 +1,6 @@
 var expect = require('expect.js');
 var _      = require('underscore');
-var hoops   = require('../../lib/hoops');
+var hoops  = require('../../lib/hoops');
 _.mixin(hoops);
 
 describe('underscore with hoops as a mixin', function() {

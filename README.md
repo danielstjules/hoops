@@ -74,12 +74,12 @@ bower install hoops
 var hoops = require('hoops');
 
 // With underscore
-var _    = require('underscore');
+var _     = require('underscore');
 var hoops = require('hoops');
 _.mixin(hoops);
 
 // With lodash
-var _    = require('lodash');
+var _     = require('lodash');
 var hoops = require('hoops');
 _.mixin(hoops);
 ```
