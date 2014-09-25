@@ -1,6 +1,6 @@
 {
   "name": "drey",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Nested access extension for underscore and lodash",
   "keywords": [
     "nested",
