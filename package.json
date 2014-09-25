@@ -32,8 +32,7 @@
     "zuul": "^1.10.1"
   },
   "scripts": {
-    "test": "./node_modules/.bin/mocha -R spec test/dreyTest.js",
-    "integrationtest": "./node_modules/.bin/mocha -R spec test/integration",
+    "test": "./node_modules/.bin/mocha -R spec test/dreyTest.js test/integration/",
     "zuultest": "./node_modules/.bin/zuul --local 8080 --ui mocha-bdd -- test/dreyTest.js",
     "saucetest": "./node_modules/.bin/zuul --ui mocha-bdd -- test/dreyTest.js"
   }
