@@ -1,5 +1,10 @@
 language: node_js
 node_js:
-  - '0.10'
+- '0.10'
 script:
-  - npm run test
+- npm run test
+- npm run saucetest
+env:
+  global:
+  - secure: EI7uLhVR6j9avxpXaqXMWBA5JnDbAovXdbfeZUFe2MI6H0COqeQndjYldpvN2I30JU590sfazDiILnPawB86/RNMllGMKYBL0Uf9bEBq67sUjndYSI3f2/nR2FlCdNodE/GJTfUupgy7ItJ6rEQElKsQQfPoOivQHmCXsuNynbQ=
+  - secure: p2j//ls/ZlftROW2WOAscHkFqBApk3oZasv92+tikwC8FSw0J8grVgI1vdKDWCs1hCGLo6RDC7zI4qxyGcC202mNTZ4HSqFsy5sfEKW1aEaqJsXfUPgtFP812GxND/mIdlhv+n43imIJvSniUUtSrMx3L1xQnPERgvZTBC5BZuc=
