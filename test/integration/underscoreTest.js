@@ -1,5 +1,5 @@
 var expect = require('expect.js');
-var _      = require('lodash');
+var _      = require('underscore');
 var drey   = require('../../lib/drey');
 _.mixin(drey);
 
@@ -16,7 +16,7 @@ describe('lodash with drey as a mixin', function() {
   });
 
   it('can chain getIn', function() {
-    var res = _(object).getIn('foo.bar.baz').value();
+    var res = _(object).chain().getIn('foo.bar.baz').value();
     expect(res).to.eql('test');
   });
 
@@ -26,7 +26,7 @@ describe('lodash with drey as a mixin', function() {
   });
 
   it('can chain isIn', function() {
-    var res = _(object).isIn('foo.bar.baz').value();
+    var res = _(object).chain().isIn('foo.bar.baz').value();
     expect(res).to.eql(true);
   });
 
@@ -47,7 +47,7 @@ describe('lodash with drey as a mixin', function() {
       invoked = true;
     };
 
-    var res = _(object).invokeIn('foo.bar.baz').value();
+    var res = _(object).chain().invokeIn('foo.bar.baz').value();
     expect(res).to.eql(object);
     expect(invoked).to.be(true);
   });
@@ -58,7 +58,7 @@ describe('lodash with drey as a mixin', function() {
   });
 
   it('can chain updateIn', function() {
-    var res = _(object).updateIn('foo.bar.baz', 'updated').value();
+    var res = _(object).chain().updateIn('foo.bar.baz', 'updated').value();
     expect(res.foo.bar.baz).to.eql('updated');
   });
 
@@ -69,7 +69,7 @@ describe('lodash with drey as a mixin', function() {
   });
 
   it('can chain setIn', function() {
-    var res = _(object).setIn('test.nested.prop', 'new').value();
+    var res = _(object).chain().setIn('test.nested.prop', 'new').value();
     expect(res.test.nested.prop).to.be('new');
     expect(res.foo).to.eql(object.foo);
   });
