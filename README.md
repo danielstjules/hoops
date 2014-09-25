@@ -1,8 +1,8 @@
 ![hoops](http://danielstjules.com/github/hoops-logo.png)
 
-Nested property access for underscore and lodash. Also usable as a standalone
-library, and available in the browser as well as for node. Tested in all
-modern browsers, and IE6+. Inspired by igorw/get-in.
+Nested property access and manipulation library for node and the browser.
+Available as a standalone module, and integrates with underscore and lodash.
+Tested in all modern browsers, and IE6+. Inspired by igorw/get-in.
 
 [![Build Status](https://travis-ci.org/danielstjules/hoops.svg?branch=master)](https://travis-ci.org/danielstjules/hoops)
 
