@@ -10,92 +10,106 @@ describe('drey', function() {
 
   describe('getIn', function() {
     it('returns the value if the keys exist', function() {
-      var expected = [
+      var expected, i, res;
+
+      expected = [
         {keys: ['foo'], res: object.foo},
         {keys: ['foo', 'bar'], res: object.foo.bar},
         {keys: ['foo', 'bar', 'baz'], res: object.foo.bar.baz}
       ];
 
-      expected.forEach(function(exp) {
-        var res = drey.getIn(object, exp.keys);
-        expect(res).to.be(exp.res);
-      });
+      for (i = 0; i < expected.length; i++) {
+        res = drey.getIn(object, expected[i].keys);
+        expect(res).to.be(expected[i].res);
+      }
     });
 
     it('returns undefined, by default, if the keys do not exist', function() {
-      var keys = [
+      var keys, i, res;
+
+      keys = [
         ['bar'],
         ['foo', 'invalid'],
         ['foo', 'bar', 'invalid']
       ];
 
-      keys.forEach(function(array) {
-        var res = drey.getIn(object, array);
+      for (i = 0; i < keys.length; i++) {
+        res = drey.getIn(object, keys[i]);
         expect(res).to.be(undefined);
-      });
+      }
     });
 
     it('returns the given defaultVal when the keys do not exist', function() {
-      var keys = [
+      var keys, i, res;
+
+      keys = [
         ['bar'],
         ['foo', 'invalid'],
         ['foo', 'bar', 'invalid']
       ];
 
-      keys.forEach(function(array) {
-        var res = drey.getIn(object, array, 'test');
+      for (i = 0; i < keys.length; i++) {
+        res = drey.getIn(object, keys[i], 'test');
         expect(res).to.be('test');
-      });
+      }
     });
 
     it('accepts dot delimited strings for keys', function() {
-      var expected = [
+      var expected, i, res;
+
+      expected = [
         {keys: 'foo', res: object.foo},
         {keys: 'foo.bar', res: object.foo.bar},
         {keys: 'foo.bar.baz', res: object.foo.bar.baz}
       ];
 
-      expected.forEach(function(exp) {
-        var res = drey.getIn(object, exp.keys);
-        expect(res).to.be(exp.res);
-      });
+      for (i = 0; i < expected.length; i++) {
+        res = drey.getIn(object, expected[i].keys);
+        expect(res).to.be(expected[i].res);
+      }
     });
   });
 
   describe('isIn', function() {
     it('returns true if the keys exist', function() {
-      var keys = [
+      var keys, i, res;
+
+      keys = [
         ['foo'],
         ['foo', 'bar'],
         ['foo', 'bar', 'baz']
       ];
 
-      keys.forEach(function(array) {
-        var res = drey.isIn(object, array);
+      for (i = 0; i < keys.length; i++) {
+        res = drey.isIn(object, keys[i]);
         expect(res).to.be(true);
-      });
+      }
     });
 
     it('returns false if the keys do not exist', function() {
-      var keys = [
+      var keys, i, res;
+
+      keys = [
         ['bar'],
         ['foo', 'invalid'],
         ['foo', 'bar', 'invalid']
       ];
 
-      keys.forEach(function(array) {
-        var res = drey.isIn(object, array);
+      for (i = 0; i < keys.length; i++) {
+        res = drey.isIn(object, keys[i]);
         expect(res).to.be(false);
-      });
+      }
     });
 
     it('accepts dot delimited strings for keys', function() {
-      var keys = ['foo', 'foo.bar', 'foo.bar.baz'];
+      var keys, i, res;
 
-      keys.forEach(function(array) {
-        var res = drey.isIn(object, array);
+      keys = ['foo', 'foo.bar', 'foo.bar.baz'];
+
+      for (i = 0; i < keys.length; i++) {
+        res = drey.isIn(object, keys[i]);
         expect(res).to.be(true);
-      });
+      }
     });
   });
 
