@@ -6,5 +6,5 @@ script:
 - npm run saucetest
 env:
   global:
-  - secure: EI7uLhVR6j9avxpXaqXMWBA5JnDbAovXdbfeZUFe2MI6H0COqeQndjYldpvN2I30JU590sfazDiILnPawB86/RNMllGMKYBL0Uf9bEBq67sUjndYSI3f2/nR2FlCdNodE/GJTfUupgy7ItJ6rEQElKsQQfPoOivQHmCXsuNynbQ=
-  - secure: p2j//ls/ZlftROW2WOAscHkFqBApk3oZasv92+tikwC8FSw0J8grVgI1vdKDWCs1hCGLo6RDC7zI4qxyGcC202mNTZ4HSqFsy5sfEKW1aEaqJsXfUPgtFP812GxND/mIdlhv+n43imIJvSniUUtSrMx3L1xQnPERgvZTBC5BZuc=
+  - secure: NEjVXi53D4bX2LwrOw74qVy0tqdXEcSfa1vkZyyScHyK2NgvNvewhkUZZ+lcxUmIkg4mGv7N8Ixv8D7ZiHJQi1n5WYCuAdjocr+9leHDEPLmGGIEBQIog+kfKf5mr9JBIgADUAhUz+1E3dsiyyLLrS9w18yomlRmNHjTCzVOEWI=
+  - secure: FyEjjNzZi1nkfidgAH5xHZBxac72slktw91Og0V25CCDmX6QQa3aQyPHXLNNhWh3W83HmYnYsEJaP2oUkJRObGg/Wfom7VOZINEn/6zkihR7NcT53h/ir/0lioSJIRyyJT7YuofEgkyrzu4fFaY+YiDDDBPirNkFvAaTyqBHUzQ=
