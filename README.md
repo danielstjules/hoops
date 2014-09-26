@@ -1,4 +1,4 @@
-![hoops](http://danielstjules.com/github/hoops-logo.png)
+![hoops](http://danielstjules.com/github/hoopslogo.png)
 
 Nested property access and manipulation library for node and the browser.
 Available as a standalone module, and integrates with underscore and lodash.
