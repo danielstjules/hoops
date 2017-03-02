@@ -1,15 +1,16 @@
 ui: mocha-bdd
 scripts:
   - "lib/hoops.js"
+concurrency: 1
 browsers:
   - name: chrome
-    version: 34..latest
+    version: latest
     platform: Linux
   - name: firefox
-    version: 29..latest
+    version: latest
     platform: Linux
   - name: safari
-    version: 5..7
+    version: 7
   - name: ie
     version: 8..latest
   - name: android

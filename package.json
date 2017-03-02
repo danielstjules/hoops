@@ -29,11 +29,11 @@
     "gulp-uglify": "^0.3.1",
     "gulp-header": "^1.1.1",
     "gulp-rimraf": "^0.1.0",
-    "zuul": "^1.10.1"
+    "zuul": "~3.10.1"
   },
   "scripts": {
-    "test": "./node_modules/.bin/mocha -R spec test/hoopsTest.js test/integration/",
-    "zuultest": "./node_modules/.bin/zuul --local 8080 --ui mocha-bdd -- test/hoopsTest.js",
-    "saucetest": "./node_modules/.bin/zuul --ui mocha-bdd -- test/hoopsTest.js"
+    "test": "mocha -R spec test/hoopsTest.js test/integration/",
+    "zuultest": "zuul --local 8080 --ui mocha-bdd -- test/hoopsTest.js",
+    "saucetest": "zuul --ui mocha-bdd -- test/hoopsTest.js"
   }
 }
